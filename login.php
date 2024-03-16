@@ -1,3 +1,7 @@
+<?php 
+include_once "./include/session.php";
+include_once "./include/db.php"
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,15 +12,16 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <link rel="stylesheet" href="assets/css/style.css">
-<title>signup</title>
+<title>Login</title>
 <style>
     body {
-        background-image: url("assets/images/login/uHd3Yab.jpg");
+        background-image: url("assets/images/login/spa-beach-hotel-infinity-pool-wallpaper-preview.jpg");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         background-attachment: fixed;
     }
+    
 </style>
 </head>
 <body>
@@ -42,36 +47,25 @@
                 </nav>
             </div>
         </div>
-        <div class="row text-light my-5">
-            <div class="col-sm-6 my-auto mx-auto userdetails">
+        <div class="row">
+            <div class="col-sm-6 mx-auto my-5 text-light userdetails">
+                <?php echo message();?>
                 <form action="./handler.php" method="post">
-                    <h1 style="text-align: center;">signup</h1>
-                    <hr>
-                    <div class="email">
-                        <label for="email">Email</label>
-                        <input type="text" name="email" id="email" class="form-control">
-                    </div>
-                    <div class="fname">
-                        <label for="fname">First Name</label>
-                        <input type="text" name="fname" id="fname" class="form-control">
-                    </div>
-                    <div class="lname">
-                        <label for="lname">Last Name</label>
-                        <input type="text" name="lname" id="lname" class="form-control">
-                    </div>
-                    <div class="password">
-                        <label for="password">Password</label>
+                    <fieldset>
+                        <legend style="text-align: center;"><i class="fa fa-user-circle" aria-hidden="true"></i> User Login</legend>
+                        <label for="email"><i class="fas fa-mail-bulk    "></i> Email:</label>
+                        <input type="email" name="email" id="email" class="form-control">
+                        <label for="password"><i class="fa fa-lock" aria-hidden="true"></i> Password:</label>
                         <input type="password" name="password" id="password" class="form-control">
-                    </div>
-                    <div class="signup my-1">
-                        <input type="submit" value="Sign Up" name="signup" class="btn btn-block btn-primary">
-                    </div>
+                        <input type="submit" value="login" name="login" class="btn btn-primary btn-block my-2">
+                    </fieldset>
                 </form>
             </div>
         </div>
+        
     </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
 </body>
