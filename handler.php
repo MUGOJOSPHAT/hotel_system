@@ -147,7 +147,7 @@ elseif(isset($_GET['bookingform'])){
             $password = $row['password'];
         }
 
-        sendmail($username,$password,"erickariukiwairimu@gmail.com",$firstname,$message);
+        sendmail($username,$password,$email,$firstname,$message);
 
         
     }else{ 
