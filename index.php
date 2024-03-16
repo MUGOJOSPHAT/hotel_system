@@ -25,9 +25,62 @@ if($logindetails != null){
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <link rel="stylesheet" href="assets/css/style.css">
+<!-- owl-carousel css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.green.min.css" integrity="sha512-C8Movfk6DU/H5PzarG0+Dv9MA9IZzvmQpO/3cIlGIflmtY3vIud07myMu4M/NTPJl8jmZtt/4mC9bAioMZBBdA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <title>3 malls hotel</title>
+<style>
+     .rotate {
+        display: inline-block;
+        transition: transform 0.5s ease-in-out; /* Smooth transition */
+    }
+    
+    .rotate.rotate-animation {
+        animation: rotateAnimation 2s linear infinite; /* Adjust duration and timing function as needed */
+    }
+    
+    @keyframes rotateAnimation {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    .center {
+    text-align: center;
+    font-weight: 900;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, green, blue, purple, red);
+    background-size: 400%;
+    animation: gradientAnimation 10s linear infinite; /* Adjust duration and timing function as needed */
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 0;
+    }
+    50% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0% 0;
+    }
+}
+.img-fluid{
+    height: 300px;
+}
+.center1{
+    text-align: center;
+}
+
+
+</style>
 </head>
-<body>
+<body class="bg-dark">
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -56,12 +109,48 @@ if($logindetails != null){
                 </nav>
             </div>
         </div>
+        <!-- main body -->
+        <div class="row ">
+            <div class="col-sm-12 my-5 text-light ">
+                <h1 class="text-light center1" >Locations</h1>
+                <hr>
+                <div class="owl-carousel overview-top text-dark">
+                    <div class="item">
+                        <div class="jumbotron jumbotron-fluid">
+                            <h1 class="display-4">mombasa</h1>
+                            <p class="lead">checkin 06:00 AM - Checkout 09:30 AM</p>
+                            <hr class="my-4">
+                            <img class="img-fluid" src="./assets/images/location/mombasa.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="jumbotron jumbotron-fluid">
+                            <h1 class="display-4">Nairobi</h1>
+                            <p class="lead">checkin 10:00 AM - Checkout 09:30 AM</p>
+                            <hr class="my-4">
+                            <img class="img-fluid" src="./assets/images/location/nairobi.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="jumbotron jumbotron-fluid">
+                            <h1 class="display-4">Kisumu</h1>
+                            <p class="lead">checkin 10:00 AM - Checkout 12:30 PM</p>
+                            <hr class="my-4">
+                            <img class="img-fluid" src="./assets/images/location/kisumu.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <h1 class="center1">Rooms</h1>
+
+            </div>
+            
+        </div>
         <!-- footer and modulular booking form -->
         <div class="row my-5" >
             <footer>
                 <div class="book-now col-sm-12 ">
                     <div class="modal-button-text fixed-bottom bg-warning ">
-                        <p>Book now at any of the location</p>
+                        <p class="center">Book now at any of the location</p>
                         <!-- Button trigger modal -->
                         <button class="btn btn-block btn-primary"data-toggle="modal" data-target="#booking-form" >Book Now!</button>
                     
@@ -72,7 +161,7 @@ if($logindetails != null){
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title center">Booking Form</h5>
+                                    <h5 class="modal-title"><span class="center"> Booking Form</span></h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -112,7 +201,8 @@ if($logindetails != null){
                                             </div>
                                             
                                             
-                                            <button class="my-1 book-btn btn btn-primary btn-block">Book</button>
+                                            <button class="my-1 book-btn btn btn-primary btn-block">Book <span class="rotate"><i class="fas fa-sync-alt"></i></span></button>
+
                                         </form>
                                     </div>
                                 </div>
@@ -131,5 +221,118 @@ if($logindetails != null){
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+$(document).ready(function() {
+    $('.overview-top').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:true,
+        autoplay:true,
+        autoplayTimeout:2500,
+        autoplayHoverPause:true,
+        
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:3
+            }
+        }
+    });
+    $('.rooms').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:true,
+        /*autoplay:true,
+        autoplayTimeout:2500,
+        autoplayHoverPause:true,*/
+        
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:3
+            }
+        }
+    });
+    //food carousel
+    $('.food').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:true,
+        /*autoplay:true,
+        autoplayTimeout:2500,
+        autoplayHoverPause:true,*/
+        
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:3
+            }
+        }
+    });
+    $('.book-btn').on('click', function(e){
+        e.preventDefault();
+        var fname = $('#fname').val();
+        var lname = $('#lname').val();
+        var email = $('#email').val();
+        var location = $('#location').val();
+        var from = $('#from').val();
+        //to make sure the datetime for from is not empty, input from the form
+        var id = <?php echo $id ?>; //get the user ID
+        if(from === ""){
+            alert("from cannot be empty, please fill all fields!!");
+            return;//to break the code
+        }
+        var to = $('#to').val();
+        //to make sure the datetime for to is not empty, input from the form
+        if(to === ""){
+            alert("To cannot be empty, please fill all fields!!");
+            return;//to break the code
+        }
+        // Select the checked radio button
+        var checkedRadioButton = $('input[name="number_of_people"]:checked');
+
+        // Get the value of the checked radio button
+        var checkedValue = checkedRadioButton.val();
+
+        // Log the value to the console (you can use it as needed)
+        //alert(checkedValue);
+
+        // Disable the button
+        $(this).prop('disabled', true);
+        $('.rotate').addClass('rotate-animation');
+
+        $.ajax({
+            url:"./handler.php",
+            method:"GET",
+            data:{bookingform:1,fname,lname,email,location,from,to,id, nop:checkedValue},
+            success:function(data){
+                alert(data);
+                // Re-enable the button after successful booking
+                $('.book-btn').prop('disabled', false);
+                $('.rotate').removeClass('rotate-animation');
+            }
+
+        });
+    });
+
+});
+</script>
 </body>
 </html>
