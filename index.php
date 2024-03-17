@@ -112,9 +112,10 @@ if($logindetails != null){
         <!-- main body -->
         <div class="row ">
             <div class="col-sm-12 my-5 text-light ">
-                <h1 class="text-light center1" >Locations</h1>
+                <h1 id="hotels" class="text-light center1" >Locations</h1>
+                <p><?php echo message();?></p>
                 <hr>
-                <div class="owl-carousel overview-top text-dark">
+                <div class="owl-carousel owl-theme overview-top text-dark">
                     <div class="item">
                         <div class="jumbotron jumbotron-fluid">
                             <h1 class="display-4">mombasa</h1>
@@ -140,7 +141,134 @@ if($logindetails != null){
                         </div>
                     </div>
                 </div>
-                <h1 class="center1">Rooms</h1>
+                <h1 class="center1" id="rooms">Rooms</h1>
+                <div class="owl-carousel rooms text-dark">
+                    <!--item1-->
+                    <div class="item">
+                        <div class="jumbotron jumbotron-fluid">
+                            <div class="container">
+                                <h1>Executive suite</h1>
+                                <hr class="my-2">
+                                <img class="img-fluid" src="./assets/images/rooms/Executive-Suite-Bedroom2_P.jpg" alt="executive suite">
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--item2-->
+                    <div class="item">
+                        <div class="jumbotron jumbotron-fluid">
+                            <div class="container">
+                                <h1>Executive Suite</h1>
+                                <hr class="my-2">
+                                <img class="img-fluid" src="./assets/images/rooms/Executive-Suite1.jpg" alt="">
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--item3-->
+                    <div class="item">
+                        <div class="jumbotron jumbotron-fluid">
+                            <div class="container">
+                                <h1>Family Suite</h1>
+                                <hr class="my-2">
+                                <img class="img-fluid" src="./assets/images/rooms/family-suit.jpg" alt="family suite">
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--item4-->
+                    <div class="item">
+                        <div class="jumbotron jumbotron-fluid">
+                            <div class="container">
+                                <h1>Family Suite</h1>
+                                <hr class="my-2">
+                                <img class="img-fluid" src="./assets/images/rooms/family-suit1.webp" alt="family suite">
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--item5-->
+                    <div class="item">
+                        <div class="jumbotron jumbotron-fluid">
+                            <div class="container">
+                                <h1>Luxury Suite</h1>
+                                <hr class="my-2">
+                                <img class="img-fluid" src="./assets/images/rooms/luxury-suit.jpg" alt="Luxury suite">
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--item6-->
+                    <div class="item">
+                        <div class="jumbotron jumbotron-fluid">
+                            <div class="container">
+                                <h1>Luxury Suite</h1>
+                                <hr class="my-2">
+                                <img class="img-fluid" src="./assets/images/rooms/luxury-suit1.webp" alt="Luxury suite">
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--item7-->
+                    <div class="item">
+                        <div class="jumbotron jumbotron-fluid">
+                            <div class="container">
+                                <h1>Royal Suite</h1>
+                                <hr class="my-2">
+                                <img class="img-fluid" src="./assets/images/rooms/royal-suit.jpg" alt="family suite">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <h1 class="center1" id="food">Food and drinks</h1>
+                <div class="owl-carousel food">
+                    <!--item1-->
+                    <div class="item">
+                        <div class="jumbotron jumbotron-fluid">
+                            <div class="container">
+                                <h1 class="display-3">Fluid jumbo heading</h1>
+                                <p class="lead">Jumbo helper text</p>
+                                <hr class="my-2">
+                                <p>More info</p>
+                                <p class="lead">
+                                    <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--item2-->
+                    <div class="item">
+                        <div class="jumbotron jumbotron-fluid">
+                            <div class="container">
+                                <h1 class="display-3">Fluid jumbo heading</h1>
+                                <p class="lead">Jumbo helper text</p>
+                                <hr class="my-2">
+                                <p>More info</p>
+                                <p class="lead">
+                                    <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--item3-->
+                    <div class="item">
+                        <div class="jumbotron jumbotron-fluid">
+                            <div class="container">
+                                <h1 class="display-3">Fluid jumbo heading</h1>
+                                <p class="lead">Jumbo helper text</p>
+                                <hr class="my-2">
+                                <p>More info</p>
+                                <p class="lead">
+                                    <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
 
             </div>
             
