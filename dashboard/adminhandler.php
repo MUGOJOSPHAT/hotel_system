@@ -351,6 +351,42 @@ elseif(isset($_POST['addproducts'])) {
         echo json_encode("No image uploaded.");
     }
 }
+//productstbl
+elseif(isset($_POST['productstbl'])){
+    $query = "SELECT * FROM products";
+    $execute = $conn->query($query);
+    $count = 0;
+    $table = "<table class='table table-fluid table-bordered'>
+                <tr>
+                <th>S/NO</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Image</th>
+                <th>Action</th>
+                </tr>";
+    while ($row = mysqli_fetch_assoc($execute)) {
+        $count++;
+        $name = $row['name'];
+        $price = $row['price'];
+        $description = $row['description'];
+        $image = $row['image'];
+        $id = $row['id'];
+        $category = $row['category'];
+        $table .= "<tr>
+                    <th>$count</th>
+                    <th>$name</th>
+                    <th>$description</th>
+                    <th>$price</th>
+                    <th>$category</th>
+                    <th><img src='../assets/images/foods_drinks/$image' class='img-fluid'></th>
+                    <th><button class='btn btn-danger btn-block' data-id='$id'>delete</button></th>
+                </tr>";
+    }
+    echo $table;
+
+}
 
 
     

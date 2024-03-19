@@ -145,6 +145,52 @@ if($type != 1){
             </div>
 
         </div>
+        <div class="row my-2">
+            <div class="col-sm-5 bg-light text-dark">
+                <h1>Add Products</h1>
+                <hr>
+                <div class="form">
+                    <!-- to be submitted using ajax-->
+                    <form enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="name">Product Name:</label>
+                            <input id="name" class="form-control" type="text" name="name">
+                        </div>
+                        <div class="form-group">
+                          <label for="price">price</label>
+                          <input type="text" name="price" id="price" class="form-control" placeholder="Amount" aria-describedby="helpId">
+                          <small id="helpId" class="text-muted">example 1500</small>
+                        </div>
+                        <div class="form-group">
+                            <input id="image" class="form-control" type="file" name="image">
+                            <img id="image-preview" class="img-thumbnail" src="" alt="">
+                        </div>
+                        <div class="form-group">
+                            <label for="Category">Category</label>
+                            <select class="form-control" name="category" id="category">
+                                <option value="drinks">Drinks</option>
+                                <option value="Foods">Food</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button id="add-product" class="btn btn-primary form-control">Add product</button>
+                        </div>
+                        
+
+                    </form>
+                </div>
+
+            </div>
+            <div class="col-sm-6 mx-auto my-auto bg-light text-dark">
+                <div id="products-table">
+                    <!-- products table placeholder -->
+                </div>
+            </div>
+        </div>
     </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -154,6 +200,55 @@ if($type != 1){
 
 <script>
     $(document).ready(function () {
+        //products table
+        function productstbl(){
+            $.ajax({
+                url: "./adminhandler.php",
+                method: "POST",
+                data:{productstbl:0},
+                success: function (data) {
+                    $("#products-table").html(data);
+                }
+            });
+        }
+
+        productstbl();
+        // Handle change event of the file input
+        $('#image').change(function(){
+            var input = this;
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                
+                reader.onload = function (e) {
+                    // Update the src attribute of the image element with the selected image
+                    $('#image-preview').attr('src', e.target.result);
+                }
+                
+                reader.readAsDataURL(input.files[0]); // Read the selected file as a Data URL
+            }
+        });
+        //submitting the form
+        $('#add-product').click(function(e){
+            e.preventDefault();
+            var formData = new FormData();
+            formData.append('name', $('#name').val());
+            formData.append('price', $('#price').val());
+            formData.append('image', $('#image')[0].files[0]);
+            formData.append('category', $('#category').val());
+            formData.append('description', $('#description').val());
+            formData.append('addproducts', 1);
+            $.ajax({
+                url: './adminhandler.php',
+                type: 'POST',
+                data: formData, // Removed curly braces
+                contentType: false,
+                processData: false,
+                success: function(data){
+                    alert(data);
+                    productstbl();
+                }
+            });
+        });
         //add credentials to db
         $("body").on("click", ".credentialadd", function(e) {
             e.preventDefault();
