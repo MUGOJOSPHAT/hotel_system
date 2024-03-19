@@ -53,7 +53,7 @@ if($logindetails != null){
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row">
+    <div class="row">
             <div class="col-sm-12">
                 <nav class="navbar navbar-expand-sm navbar-dark fixed-top" style="background-image: linear-gradient(to right, rgb(35, 204, 111),purple);">
                     <a class="navbar-brand" href="#"><img class="logo" src="./assets/images/logo/mugologo.png" alt=""></a>
@@ -68,11 +68,14 @@ if($logindetails != null){
                                 <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Jump To</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdownId">
                                     <a class="dropdown-item" href="./index.php?#hotels">Hotels</a>
-                                    <a class="dropdown-item" href="index.php?#rooms">Rooms</a>
+                                    <a class="dropdown-item" href="./index.php?#rooms">Rooms</a>
                                 </div>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="./roomservice.php"><i class="fas fa-utensil-spoon    "></i> Room Service</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./aboutus.php"><i class="fas fa-utensil-spoon    "></i><i class="fa fa-book" aria-hidden="true"></i> About Us</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="./login.php"><i class="fas fa-door-open    "></i> logout, <?php echo $firstname; ?></a>
