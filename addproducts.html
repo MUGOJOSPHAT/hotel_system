@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<title>add products</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form">
+                    <!-- to be submitted using ajax-->
+                    <form enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="name">Product Name:</label>
+                            <input id="name" class="form-control" type="text" name="name">
+                        </div>
+                        <div class="form-group">
+                          <label for="price">price</label>
+                          <input type="text" name="price" id="price" class="form-control" placeholder="Amount" aria-describedby="helpId">
+                          <small id="helpId" class="text-muted">example 1500</small>
+                        </div>
+                        <div class="form-group">
+                            <input id="image" class="form-control" type="file" name="image">
+                            <img id="image-preview" class="img-thumbnail" src="" alt="">
+                        </div>
+                        <div class="form-group">
+                            <label for="Category">Category</label>
+                            <select class="form-control" name="category" id="category">
+                                <option value="drinks">Drinks</option>
+                                <option value="Foods">Food</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button id="add-product" class="btn btn-primary btn-block">Add product</button>
+                        </div>
+                        
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function(){
+        // Handle change event of the file input
+        $('#image').change(function(){
+            var input = this;
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                
+                reader.onload = function (e) {
+                    // Update the src attribute of the image element with the selected image
+                    $('#image-preview').attr('src', e.target.result);
+                }
+                
+                reader.readAsDataURL(input.files[0]); // Read the selected file as a Data URL
+            }
+        });
+        //submitting the form
+        $('#add-product').click(function(e){
+            e.preventDefault();
+            var formData = new FormData();
+            formData.append('name', $('#name').val());
+            formData.append('price', $('#price').val());
+            formData.append('image', $('#image')[0].files[0]);
+            formData.append('category', $('#category').val());
+            formData.append('description', $('#description').val());
+            formData.append('addproducts', 1);
+            $.ajax({
+                url: './dashboard/adminhandler.php',
+                type: 'POST',
+                data: formData, // Removed curly braces
+                contentType: false,
+                processData: false,
+                success: function(data){
+                    alert(data);
+                }
+            });
+        });
+    });
+    </script>
+    
+</body>
+</html>

@@ -1,5 +1,6 @@
 <?php
 require_once "./include/session.php";
+require_once "./include/db.php";
 $logindetails =logindetails();
 if($logindetails != null){
     $email = $logindetails[0];
@@ -99,6 +100,9 @@ if($logindetails != null){
                                     <a class="dropdown-item" href="#hotels">Hotels</a>
                                     <a class="dropdown-item" href="#rooms">Rooms</a>
                                 </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./roomservice.php"><i class="fas fa-utensil-spoon    "></i> Room Service</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="./login.php"><i class="fas fa-door-open    "></i> logout, <?php echo $firstname; ?></a>
@@ -222,52 +226,33 @@ if($logindetails != null){
                     </div>
                 </div>
                 <h1 class="center1" id="food">Food and drinks</h1>
-                <div class="owl-carousel food">
-                    <!--item1-->
+                <div class="owl-carousel food text-dark">
+                    <?php 
+                    $query = "SELECT * FROM products";
+                    $execute =$conn ->query($query);
+                    while($row = mysqli_fetch_assoc($execute)){
+                        $name = $row['name'];
+                        $price = $row['price'];
+                        $description = $row['description'];
+                        $image = $row['image'];
+                        $id = $row['id'];
+
+                    
+                    ?>
+                    <!--items-->
                     <div class="item">
                         <div class="jumbotron jumbotron-fluid">
                             <div class="container">
-                                <h1 class="display-3">Fluid jumbo heading</h1>
-                                <p class="lead">Jumbo helper text</p>
+                                <h1><?php echo $name; ?></h1>
+                                <p class="lead">Price: Kshs<?php echo $price; ?></p>
                                 <hr class="my-2">
-                                <p>More info</p>
-                                <p class="lead">
-                                    <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
-                                </p>
+                                <img class="img-fluid" src="./assets/images/foods_drinks/<?php echo $image; ?>" alt="<?php echo $image; ?>">
                             </div>
                         </div>
 
                     </div>
-                    <!--item2-->
-                    <div class="item">
-                        <div class="jumbotron jumbotron-fluid">
-                            <div class="container">
-                                <h1 class="display-3">Fluid jumbo heading</h1>
-                                <p class="lead">Jumbo helper text</p>
-                                <hr class="my-2">
-                                <p>More info</p>
-                                <p class="lead">
-                                    <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <!--item3-->
-                    <div class="item">
-                        <div class="jumbotron jumbotron-fluid">
-                            <div class="container">
-                                <h1 class="display-3">Fluid jumbo heading</h1>
-                                <p class="lead">Jumbo helper text</p>
-                                <hr class="my-2">
-                                <p>More info</p>
-                                <p class="lead">
-                                    <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
+                    <?php }?>
+                    
                 </div>
 
             </div>

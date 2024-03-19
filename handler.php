@@ -157,4 +157,76 @@ elseif(isset($_GET['bookingform'])){
     //echo "connection made,location $location from $from to $to  for $email userid =$id";
 
 }
+//add to cart
+elseif(isset($_POST['addtocart'])){
+    $logindetails =logindetails();
+    $id = $logindetails[1];
+    $productid = $_POST['id'];
+    $query = "INSERT INTO roomservice (product_id,user_id) VALUES('$productid','$id')"; 
+    $execute = $conn->query($query);
+    if($execute){
+        echo json_encode("Added To cart successfully");
+    }
+    else{
+        echo json_encode("something went wrong");
+    }
+}
+elseif(isset($_POST['updatecart'])){
+    
+    $logindetails =logindetails();
+    $id = $logindetails[1];
+    $query = "SELECT * FROM roomservice WHERE user_id='$id'";
+    $execute = $conn->query($query);
+    $count = 0;
+    $total = 0;
+    $table = "<table class='table table-hover'>
+                    <tr>
+                        <th>S/NO</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Delete</th>
+                    </tr>";
+    while($rows = mysqli_fetch_assoc($execute)){
+        $bookingid = $rows['id'];
+        $productid = $rows['product_id'];
+        $query1 = "SELECT * FROM products WHERE id='$productid'";
+        $execute1 = $conn->query($query1);
+        $count++;
+        while($rows1 = mysqli_fetch_assoc($execute1)){
+            $name = $rows1['name'];
+            $price = $rows1['price'];
+            $description = $rows1['description'];
+            $image = $rows1['image'];
+            
+        }
+        $total += $price;
+        $table .="<tr>
+                    <td>$count</td>
+                    <td>$name</td>
+                    <td>$price</td>
+                    <td><button data-id='$bookingid' class='deletecart btn btn-block btn-danger'>Delete</button></td>
+                </tr>";
+
+    }
+    $table .= "<tr>
+                <td colspan='2'>Total</td>
+                <td colspan='2' style='color:red;'>$total</td>
+                
+                </tr>
+                </table>";
+    echo $table;
+}
+//delete from the cart
+elseif(isset($_POST['deleteitem'])){
+    //roomservice table is used to store cart bookings
+    $id = $_POST['id'];
+    $query = "DELETE FROM roomservice WHERE id='$id'";
+    $execute = $conn->query($query);
+    if($execute){
+        echo "deleted successfully";
+    }else{
+        echo "something went wrong";
+    }
+
+}
 ?>

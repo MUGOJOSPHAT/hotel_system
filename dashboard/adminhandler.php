@@ -305,6 +305,53 @@ elseif(isset($_POST['credentialadd'])){
     }
 
 }
+//addproducts
+elseif(isset($_POST['addproducts'])) {
+    $name = $_POST['name'];
+    $description = $_POST['description'];
+    $price = $_POST['price'];
+    $category = $_POST['category'];
+
+    // Handle the uploaded image
+    if(isset($_FILES['image'])) {
+        $file_name = $_FILES['image']['name'];
+        $file_tmp = $_FILES['image']['tmp_name'];
+        
+        // Move the uploaded file to desired directory
+        $target_directory = "../assets/images/foods_drinks/";
+        $target_file = $target_directory . basename($file_name);
+        if(move_uploaded_file($file_tmp, $target_file)) {
+            // File moved successfully, now insert the image name into the database
+            $image = basename($file_name); // Store only the file name in the database
+            
+            // Your database connection code goes here
+            $query = "INSERT INTO products (name, description, price, category, image) VALUES (?, ?, ?, ?, ?)";
+
+            // Prepare the statement
+            $stmt = $conn->prepare($query);
+
+            // Bind parameters
+            $stmt->bind_param("ssdss", $name, $description, $price, $category, $image);
+
+            // Execute the statement
+            if ($stmt->execute()) {
+                echo json_encode("Product added successfully. Name: $name");
+            } else {
+                echo json_encode("Error: ". $stmt->error);
+            }
+
+            // Close the statement
+            $stmt->close();
+
+            
+        } else {
+            echo json_encode("Failed to move uploaded file.");
+        }
+    } else {
+        echo json_encode("No image uploaded.");
+    }
+}
+
 
     
                 
