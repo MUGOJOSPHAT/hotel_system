@@ -1,3 +1,22 @@
+<?php 
+require_once "./include/session.php";
+require_once "./include/db.php";
+$logindetails =logindetails();
+if($logindetails != null){
+    $email = $logindetails[0];
+    $id = $logindetails[1];
+    $type = $logindetails[2];
+    //to make sure the logged in user is customer
+    if($type != 0){
+        header("location:./login.php");
+    }
+    $firstname = $logindetails[3];
+    $lastname = $logindetails[4];
+}else{
+    header("location:login.php");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +53,7 @@
                                 <a class="nav-link" href="./roomservice.php"><i class="fas fa-utensil-spoon    "></i> Room Service</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./aboutus.php"><i class="fas fa-utensil-spoon    "></i><i class="fa fa-book" aria-hidden="true"></i> About Us</a>
+                                <a class="nav-link" href="./aboutus.php"><i class="fa fa-book" aria-hidden="true"></i> About Us</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="./login.php"><i class="fas fa-door-open    "></i> logout, <?php echo $firstname; ?></a>
