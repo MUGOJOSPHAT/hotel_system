@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2024 at 10:25 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Mar 19, 2024 at 03:22 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.1.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,26 +42,26 @@ CREATE TABLE `booking` (
 --
 
 INSERT INTO `booking` (`id`, `user_id`, `datetime_from`, `datetime_to`, `location`, `number_of_people`, `datetime`) VALUES
-(1, 1, '2024-03-16T19:01', '2024-03-16T16:05', 'Nairobi', 5, '2024-03-16 16:01:39'),
-(2, 1, '2024-03-16T19:01', '2024-03-16T16:05', 'Nairobi', 5, '2024-03-16 16:13:53'),
-(3, 1, '2024-03-16T19:01', '2024-03-16T16:05', 'Nairobi', 5, '2024-03-16 16:26:53'),
-(4, 1, '2024-03-16T19:01', '2024-03-16T16:05', 'Nairobi', 5, '2024-03-16 16:28:44'),
-(5, 1, '2024-03-16T19:01', '2024-03-16T16:05', 'Nairobi', 5, '2024-03-16 16:28:57'),
-(6, 1, '2024-03-16T19:01', '2024-03-16T16:05', 'Nairobi', 5, '2024-03-16 16:31:17'),
-(7, 1, '2024-03-16T16:48', '2024-03-16T16:48', 'Nairobi', 5, '2024-03-16 16:45:31'),
-(8, 1, '2024-03-16T16:52', '2024-03-16T16:51', 'Nairobi', 5, '2024-03-16 16:49:40'),
-(9, 1, '2024-03-16T22:00', '2024-03-16T17:05', 'Nairobi', 5, '2024-03-16 17:01:00'),
-(10, 1, '2024-03-16T17:06', '2024-03-16T17:06', 'Nairobi', 5, '2024-03-16 17:01:59'),
-(11, 1, '2024-03-16T17:06', '2024-03-16T17:06', 'Nairobi', 5, '2024-03-16 17:08:14'),
-(12, 1, '2024-03-16T17:06', '2024-03-16T17:06', 'Nairobi', 5, '2024-03-16 17:14:09'),
-(13, 1, '2024-03-16T17:06', '2024-03-16T17:06', 'Nairobi', 5, '2024-03-16 17:17:10'),
-(14, 1, '2024-03-16T17:06', '2024-03-16T17:06', 'Nairobi', 2, '2024-03-16 17:19:51'),
-(15, 1, '2024-03-16T17:06', '2024-03-16T17:06', 'Nairobi', 1, '2024-03-16 17:21:49'),
-(16, 1, '2024-03-16T17:06', '2024-03-16T17:06', 'Nairobi', 1, '2024-03-16 17:25:10'),
-(17, 2, '2024-03-16T22:00', '2024-03-30T22:56', 'Nairobi', 5, '2024-03-16 22:56:16'),
-(18, 3, '2024-03-17T23:00', '2024-03-16T03:00', 'Nairobi', 2, '2024-03-16 23:01:09'),
-(19, 3, '2024-03-17T23:00', '2024-03-16T03:00', 'Nairobi', 2, '2024-03-16 23:03:44'),
-(20, 4, '2024-03-16T20:14', '2024-03-28T20:14', 'Nairobi', 2, '2024-03-16 23:15:03');
+(1, 2, '2024-03-16T22:44', '2024-03-23T22:45', 'Nairobi', 0, '2024-03-16 22:45:07'),
+(2, 2, '2024-03-16T22:48', '2024-03-23T22:48', 'Nairobi', 5, '2024-03-16 22:48:30'),
+(3, 2, '2024-03-16T23:34', '2024-03-16T23:36', 'Nairobi', 5, '2024-03-16 23:32:03'),
+(5, 2, '2024-03-16T23:59', '2024-03-16T23:59', 'Nairobi', 5, '2024-03-16 23:54:43'),
+(6, 2, '2024-03-16T23:59', '2024-03-16T23:59', 'Nairobi', 5, '2024-03-16 23:59:47'),
+(7, 2, '2024-03-16T23:59', '2024-03-16T23:59', 'Nairobi', 5, '2024-03-17 00:04:59'),
+(8, 2, '2024-03-18T11:43', '2024-03-18T11:43', 'Nairobi', 2, '2024-03-18 07:43:30'),
+(9, 2, '2024-03-18T14:43', '2024-03-18T16:43', 'Nairobi', 2, '2024-03-18 07:50:24'),
+(10, 2, '2024-03-22T08:36', '2024-03-18T12:36', 'Nairobi', 0, '2024-03-18 08:36:30'),
+(11, 2, '2024-03-22T08:36', '2024-03-18T12:36', 'Nairobi', 0, '2024-03-18 08:36:43'),
+(12, 2, '2024-03-22T08:36', '2024-03-18T12:36', 'Nairobi', 5, '2024-03-18 08:39:48'),
+(13, 2, '2024-03-16T08:44', '2024-03-30T08:44', 'Nairobi', 5, '2024-03-18 08:44:13'),
+(14, 2, '2024-03-23T08:46', '2024-03-29T08:46', 'Kisumu', 5, '2024-03-18 08:46:38'),
+(15, 2, '2024-03-24T08:54', '2024-03-18T14:54', 'Nairobi', 5, '2024-03-18 08:54:20'),
+(16, 2, '2024-03-31T09:00', '2024-03-16T09:00', 'Nairobi', 5, '2024-03-18 09:01:02'),
+(17, 2, '2024-03-18T10:03', '2024-03-18T14:08', 'Kisumu', 5, '2024-03-18 09:03:28'),
+(18, 2, '2024-03-18T09:15', '2024-04-03T15:10', 'Nairobi', 2, '2024-03-18 09:10:30'),
+(19, 2, '2024-03-24T09:12', '2024-03-18T13:12', 'Nairobi', 2, '2024-03-18 09:12:57'),
+(20, 2, '2024-03-03T09:12', '2024-04-05T19:12', 'Nairobi', 2, '2024-03-18 09:15:27'),
+(21, 3, '2024-03-19T16:52', '2024-03-19T19:52', 'Nairobi', 1, '2024-03-19 15:52:13');
 
 -- --------------------------------------------------------
 
@@ -82,7 +82,8 @@ CREATE TABLE `credentials` (
 --
 
 INSERT INTO `credentials` (`id`, `email`, `password`, `provider`, `datetime`) VALUES
-(1, 'erickariukiwairimu@gmail.com', 'joca cgcd tsnx pwlj', 'gmail', 'current_timestamp()');
+(9, 'josphatmugo52@gmail.com', 'jmugo7715', 'gmail', '2024-03-18 09:09:57'),
+(10, 'josephatmugo62@gmail.com', 'tpkl tcgz wvpk lgrj', 'gmail', '2024-03-18 09:12:27');
 
 -- --------------------------------------------------------
 
@@ -138,7 +139,10 @@ INSERT INTO `roomservice` (`id`, `user_id`, `product_id`, `datetime`) VALUES
 (11, 5, 1, '2024-03-19 12:17:34'),
 (12, 5, 3, '2024-03-19 12:17:41'),
 (13, 5, 1, '2024-03-19 12:17:54'),
-(14, 5, 1, '2024-03-19 12:17:57');
+(14, 5, 1, '2024-03-19 12:17:57'),
+(15, 2, 1, '2024-03-19 13:43:02'),
+(16, 2, 1, '2024-03-19 13:43:04'),
+(17, 2, 3, '2024-03-19 13:43:06');
 
 -- --------------------------------------------------------
 
@@ -162,10 +166,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`, `type`, `datetime`) VALUES
 (1, 'john', 'doe', 'johndoe@gmail.com', '$2y$10$tIUzo9ePBBt/19UcDke8EuR9KVGDwXF2wsbb6rutuxHLZ6g78CfRS', 0, '2024-03-16 14:11:54'),
-(2, 'james', 'doe', 'jamesdoe@gmail.com', '$2y$10$2WNUs2So1NCOikKToGQ7Y.TlVI1dd23sLZc3UaDeqZNZLFxspv0gi', 0, '2024-03-16 22:55:55'),
-(3, 'Josphat', 'Mugo', 'josephatmugo62@gmail.com', '$2y$10$8ENoxedIzYWj8dSkm3DIDOa4vXD4L4IXi9mKtXnfVGn5H0hzU7YNS', 0, '2024-03-16 23:00:16'),
-(4, 'Anita', 'Nyaboke', 'nyabokeanitao@gmail.com', '$2y$10$jJggr2jk6PQ8TyyNOldDf.R13rnKdwdxfkiAGrvno.iDw7Su5cvXu', 0, '2024-03-16 23:13:10'),
-(5, 'james', 'enok', 'jamesenok89@gmail.com', '$2y$10$ZvdaStz.ZqUkjWUxctD4pOP7vWEO3MGvz.zMn8OvN5Gy7ONLLPIYq', 0, '2024-03-19 12:16:27');
+(2, 'Josphat', 'Muthiora', 'josephatmugo62@gmail.com', '$2y$10$0L62SnS17e3g55EA4AVMlezCNtBMGBb8otiCSy4uIgEo7qCdaVw7.', 0, '2024-03-16 14:34:50'),
+(3, 'James', 'Majoka', 'admin@example.com', '$2y$10$3v7iBfDyXzTKTegAr3YYaOvGoQycU/016UMbjuAxCYpFmGGXGrbga', 1, '2024-03-18 07:59:31');
 
 --
 -- Indexes for dumped tables
@@ -199,7 +201,8 @@ ALTER TABLE `roomservice`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -209,13 +212,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `credentials`
 --
 ALTER TABLE `credentials`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -227,13 +230,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `roomservice`
 --
 ALTER TABLE `roomservice`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
