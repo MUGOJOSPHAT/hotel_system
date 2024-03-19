@@ -200,6 +200,32 @@ if($type != 1){
 
 <script>
     $(document).ready(function () {
+        //delete product
+        
+        $("body").on("click", ".productdelete", function(e) {
+            var confirm1 = confirm('Do you want to delete this product');
+            if (confirm1 == false) {
+                return false;
+            }
+        
+
+            
+            $id = $(this).data('id');
+            $.ajax({
+                type: "POST",
+                dataType:"json",
+                url: "./adminhandler.php",
+                data: {
+                    id: $id,
+                    deleteproduct:1
+                },
+                success: function (data) {
+                    alert(data);
+                    productstbl();
+                }
+            })
+
+        });
         //products table
         function productstbl(){
             $.ajax({

@@ -381,27 +381,23 @@ elseif(isset($_POST['productstbl'])){
                     <th>$price</th>
                     <th>$category</th>
                     <th><img src='../assets/images/foods_drinks/$image' class='img-fluid'></th>
-                    <th><button class='btn btn-danger btn-block' data-id='$id'>delete</button></th>
+                    <th><button class='btn btn-danger btn-block productdelete' data-id='$id'>delete</button></th>
                 </tr>";
     }
     echo $table;
 
 }
-
-
-    
-                
-
-                
-
-                
-                    
-                       
-                        
-                    
-                
-                
-            
+elseif(isset($_POST['deleteproduct'])){
+    $id = $_POST['id'];
+    $query = "DELETE FROM products WHERE id='$id'";
+    $run = $conn->query($query);
+    if($run == true){
+        echo json_encode("deleted successfully");
+    } else {
+        echo json_encode("Error: ". $conn->error);
+    }
+}
+                         
 ?>
 
                     
