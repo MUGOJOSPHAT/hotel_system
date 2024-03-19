@@ -31,6 +31,25 @@ if($logindetails != null){
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.green.min.css" integrity="sha512-C8Movfk6DU/H5PzarG0+Dv9MA9IZzvmQpO/3cIlGIflmtY3vIud07myMu4M/NTPJl8jmZtt/4mC9bAioMZBBdA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <title>Room service</title>
+<style>
+     .rotate {
+        display: inline-block;
+        transition: transform 0.5s ease-in-out; /* Smooth transition */
+    }
+    
+    .rotate.rotate-animation {
+        animation: rotateAnimation 2s linear infinite; /* Adjust duration and timing function as needed */
+    }
+    
+    @keyframes rotateAnimation {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+</style>
 </head>
 <body>
     <div class="container-fluid">
@@ -152,6 +171,22 @@ if($logindetails != null){
 <script>
     $(document).ready(function() {
         updatecart();
+        //checkout btn checkout
+        $("body").on("click", ".checkout", function() {
+            $(this).prop('disabled', true);
+            $('.rotate').addClass('rotate-animation');
+            $.ajax({
+                url: "./handler.php",
+                method: "POST",
+                data: {checkout: 1},
+                success: function(data) {
+                    alert(data);
+                    $(".checkout").prop('disabled', false);
+                    $('.rotate').removeClass('rotate-animation');
+                    
+                }
+            });
+        });
         //buttons addtocart
         $("body").on("click", ".addtocart", function() {
             var id = $(this).data("id");

@@ -213,6 +213,7 @@ elseif(isset($_POST['updatecart'])){
                 <td colspan='2' style='color:red;'>$total</td>
                 
                 </tr>
+                <tr ><td colspan='4'><button id='checkout' class='checkout btn btn-block btn-warning'>Check-Out  <span class='rotate'><i class='fas fa-sync-alt'></i></span></button></td></tr>
                 </table>";
     echo $table;
 }
@@ -228,5 +229,67 @@ elseif(isset($_POST['deleteitem'])){
         echo "something went wrong";
     }
 
+}
+elseif(isset($_POST['checkout'])){
+    $logindetails =logindetails();
+    $email = $logindetails[0];
+    $firstname = $logindetails[3];
+    $id = $logindetails[1];
+    $query = "SELECT * FROM roomservice WHERE user_id='$id'";
+    $execute = $conn->query($query);
+    $count = 0;
+    $total = 0;
+    $table = "<table style='border-collapse: collapse; width: 100%;'>
+            <tr>
+                <td colspan='3' style='color: green; text-align: center; padding: 8px;'>$email</td>
+            </tr>
+            <tr>
+                <th style='border: 1px solid #dddddd; text-align: left; padding: 8px;'>S/NO</th>
+                <th style='border: 1px solid #dddddd; text-align: left; padding: 8px;'>Name</th>
+                <th style='border: 1px solid #dddddd; text-align: left; padding: 8px;'>Price</th>
+            </tr>
+            ";
+
+while ($rows = mysqli_fetch_assoc($execute)) {
+    $bookingid = $rows['id'];
+    $productid = $rows['product_id'];
+    $query1 = "SELECT * FROM products WHERE id='$productid'";
+    $execute1 = $conn->query($query1);
+    $count++;
+    while ($rows1 = mysqli_fetch_assoc($execute1)) {
+        $name = $rows1['name'];
+        $price = $rows1['price'];
+        $description = $rows1['description'];
+        $image = $rows1['image'];
+    }
+    $total += $price;
+    $table .= "<tr>
+                <td style='border: 1px solid #dddddd; text-align: left; padding: 8px;'>$count</td>
+                <td style='border: 1px solid #dddddd; text-align: left; padding: 8px;'>$name</td>
+                <td style='border: 1px solid #dddddd; text-align: left; padding: 8px;'>$price</td>
+            </tr>";
+}
+
+$table .= "<tr>
+            <td colspan='2' style='border: 1px solid #dddddd; text-align: left; padding: 8px;'>Total</td>
+            <td colspan='1' style='border: 1px solid #dddddd; text-align: left; padding: 8px; color: red;'>$total</td>
+        </tr>
+    </table>";
+
+$message = $table;
+
+    
+    //php mailer sending the cart
+    $sql = "SELECT * FROM credentials WHERE provider='gmail'";
+    $run = $conn->query($sql);
+    while($row = mysqli_fetch_array($run)){
+        $username = $row['email'];
+        $password = $row['password'];
+    }
+
+   sendmail($username,$password,$email,$firstname, $table);
+    //echo json_encode( "email sent");
+    
+    
 }
 ?>
