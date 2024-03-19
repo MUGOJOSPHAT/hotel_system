@@ -301,7 +301,7 @@ if($logindetails != null){
                                             <input type="datetime-local" name="to" id="to" class="form-control">
                                             <p class="center">Number of People</p>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="number_of_people" id="one" value="1">
+                                                <input checked class="form-check-input" type="radio" name="number_of_people" id="one" value="1">
                                                 <label class="form-check-label" for="onetwo">1</label>
                                             </div>
                                             <div class="form-check form-check-inline">
@@ -309,8 +309,17 @@ if($logindetails != null){
                                                 <label class="form-check-label" for="two">2</label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="number_of_people" id="five" value="5">
+                                                <input  class="form-check-input" type="radio" name="number_of_people" id="five" value="5">
                                                 <label class="form-check-label" for="five">5</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="room">Select the type of room</label>
+                                                <select name="room" id="room" class="form-control">
+                                                    <option value="Luxury">Luxury Suite</option>
+                                                    <option value="Executive">Executive Suite</option>
+                                                    <option value="Royal">Royal Suite</option>
+                                                    <option value="Family">Family Suite</option>
+                                                </select>
                                             </div>
                                             
                                             
@@ -401,6 +410,7 @@ $(document).ready(function() {
     });
     $('.book-btn').on('click', function(e){
         e.preventDefault();
+        var room = $('#room').val();//drop down
         var fname = $('#fname').val();
         var lname = $('#lname').val();
         var email = $('#email').val();
@@ -434,7 +444,7 @@ $(document).ready(function() {
         $.ajax({
             url:"./handler.php",
             method:"GET",
-            data:{bookingform:1,fname,lname,email,location,from,to,id, nop:checkedValue},
+            data:{bookingform:1,fname,lname,email,location,from,to,id, nop:checkedValue, room:room},
             success:function(data){
                 alert(data);
                 // Re-enable the button after successful booking

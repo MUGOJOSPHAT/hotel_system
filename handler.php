@@ -96,6 +96,7 @@ elseif(isset($_GET['bookingform'])){
     $firstname = $logindetails[3];
     $lastname = $logindetails[4];
     $from = $_GET['from'];
+    $room = $_GET['room'];
     
     $to = $_GET['to'];
     $email = $_GET['email'];
@@ -132,6 +133,10 @@ elseif(isset($_GET['bookingform'])){
                     <tr>
                         <th style='border: 1px solid #ddd; padding: 8px;'>Number Of People</th>
                         <td style='border: 1px solid #ddd; padding: 8px;'>$Number_of_people</td>
+                    </tr>
+                    <tr>
+                        <th style='border: 1px solid #ddd; padding: 8px;'>Room</th>
+                        <td style='border: 1px solid #ddd; padding: 8px;'>$room</td>
                     </tr>
                     
                     
