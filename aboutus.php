@@ -83,7 +83,7 @@ if($logindetails != null){
                     <p>At 3 Malls Motel, our dedicated team of hospitality professionals is committed to providing personalized service and creating memorable experiences for our guests. From seamless check-in to attentive concierge assistance, we are here to ensure your stay exceeds your expectations.</p>
                     <h3>Contact Us</h3>
                     <p>Experience the epitome of luxury and hospitality at 3 Malls Motel. Book your stay with us today and discover the perfect blend of comfort, convenience, and sophistication.</p>
-
+                    
                     <p>For inquiries and reservations, please contact us at:</p>
                     <ul>
                         <li>Address: <i class="fa fa-map" aria-hidden="true"></i> Kikuyu, Kiambu,Kenya</li>

@@ -76,11 +76,11 @@ elseif(isset($_POST['updatebookingtbl'])){
         exit();
     }
     $i = 0;
-    while ($row = $result->fetch_assoc()) {
+    while ($row = mysqli_fetch_assoc($result) ) {
         $user_id = $row['user_id'];
         $query1 = "SELECT * FROM users WHERE id='$user_id'";
         $result1 = $conn->query($query1);
-        while ($row1 = $result1 -> fetch_assoc()){
+        while ($row1 = mysqli_fetch_assoc($result1)){
             $fname = $row1['firstname'];
             $lname = $row1['lastname'];
             $email = $row1['email'];
@@ -94,21 +94,21 @@ elseif(isset($_POST['updatebookingtbl'])){
         $nop = $row['number_of_people'];
         $i++;
         $table .= "<tr>
-        <td>$i</td>
-        <td>$fname $lname</td>
-        <td>$email</td>
-        <td>$location</td>
-        <td>$datetime_from</td>
-        <td>$datetime_to</td>
-        <td>$nop</td>
-        <td>$datetime</td>
-        <td><button data-id='$id' class='btn btn-block btn-danger btn-bookings'>Delete</button></td>
-    </tr>";
+                    <td>$i</td>
+                    <td>$fname $lname</td>
+                    <td>$email</td>
+                    <td>$location</td>
+                    <td>$datetime_from</td>
+                    <td>$datetime_to</td>
+                    <td>$nop</td>
+                    <td>$datetime</td>
+                    <td><button data-id='$id' class='btn btn-block btn-danger btn-bookings'>Delete</button></td>
+                    </tr>";
     }
     $table .= "</table>";
     echo $table;
 }
-if (isset($_POST['usersdelete'])) {
+elseif (isset($_POST['usersdelete'])) {
     // Ensure that 'id' is set and is a valid integer
     if (isset($_POST['id']) && is_numeric($_POST['id'])) {
         $id = $_POST['id'];

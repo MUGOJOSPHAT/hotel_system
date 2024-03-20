@@ -91,6 +91,33 @@ elseif(isset($_POST['login'])){
         header("location:./login.php");
     }
 }
+//forgot pass
+elseif(isset($_POST['passchange'])){
+    $email = $_POST['username'];
+    $newpassword = $_POST['password'];
+    $query = "SELECT * FROM users WHERE email = '$email'";
+    $result = $conn->query($query);
+    while($rows = mysqli_fetch_array($result)){
+        $id = $rows['id'];
+        $firstname = $rows['firstname'];
+        $lastname = $rows['lastname'];
+    }
+    if($firstname == null){
+        $_SESSION['errormsg']= "user doesn't exist!";
+        header("location:./login.php");
+    }else{
+        $passwordhash = password_hash($newpassword, PASSWORD_DEFAULT);
+        $query = "UPDATE users SET password = '$passwordhash' WHERE id = '$id'";
+        $result = $conn->query($query);
+        if($result){
+            $_SESSION['successmsg']= "password changed successfully";
+            header("location:./login.php");
+        }else{ 
+            $_SESSION['errormsg']= "something went wrong";
+            header("location:./login.php");
+        }
+    }
+}
 elseif(isset($_GET['bookingform'])){
     $logindetails =logindetails();
     $firstname = $logindetails[3];

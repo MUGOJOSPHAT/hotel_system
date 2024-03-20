@@ -21,7 +21,12 @@ include_once "./include/db.php"
         background-repeat: no-repeat;
         background-attachment: fixed;
     }
-    
+    a{
+        color: rgb(12, 219, 91);
+    }
+    a:hover{
+        color: yellow;
+    }
 </style>
 </head>
 <body>
@@ -58,6 +63,7 @@ include_once "./include/db.php"
                         <label for="password"><i class="fa fa-lock" aria-hidden="true"></i> Password:</label>
                         <input type="password" name="password" id="password" class="form-control">
                         <input type="submit" value="login" name="login" class="btn btn-primary btn-block my-2">
+                        <p class="center">forgot password ?<span><a href="./forgotpassword.php">Reset Password</a></span></p>
                     </fieldset>
                 </form>
             </div>
